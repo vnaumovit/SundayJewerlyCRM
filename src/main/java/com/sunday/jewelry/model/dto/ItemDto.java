@@ -38,6 +38,5 @@ public class ItemDto {
     private ImageDto image;
 
     @NotNull
-    @NotEmpty
     private List<SizeDto> sizes;
 }

@@ -7,6 +7,7 @@ async function createItem() {
     console.log(data)
     const response = await itemFetch.addItem(data);
     if (response.ok) {
+      sizes = [];
       clearItemFields(addItemForm);
       addItemForm.prepend(alertMessage('Товар успешно добавлен!'));
       await getItems();
