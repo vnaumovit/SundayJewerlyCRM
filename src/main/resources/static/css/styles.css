@@ -99,10 +99,6 @@
     margin-left: 30px;
 }
 
-.modal-content {
-    /*max-height: 500px;*/
-}
-
 .modal-body-optional {
     min-height: 150px;
     max-height: 500px;
