@@ -47,10 +47,11 @@ public interface ItemRepository extends JpaRepository<Item, UUID> {
             Pageable pageable
     );
 
-
     @NonNull
     Optional<Item> findById(UUID id);
 
     @Query(value = "SELECT code FROM items i ORDER BY code DESC LIMIT 1", nativeQuery = true)
     Optional<String> getLastCode();
+
+//    long countAll();
 }

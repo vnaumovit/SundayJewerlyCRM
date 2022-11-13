@@ -1,8 +1,15 @@
-async function getItems() {
-  let page = { pageNumber: pagingNumber, pageSize: 15 };
+async function getItems(pageNumber) {
+  if (pageNumber === undefined) {
+    pageNumber = 0
+  }
+  let pageSize = 10;
+  let page = { pageNumber: pageNumber, pageSize: pageSize};
   let items = await itemFetch.getAllItems(page)
     .then(res => res.json())
     .then(items => items);
+  if (items.length < pageSize) {
+    $('#showElse').prop('hidden', true)
+  }
   await itemsForeach(items);
   $('#tableAllItems').find('button').on('click', (event) => {
     showMainModal(event);
@@ -11,7 +18,6 @@ async function getItems() {
 
 async function itemsForeach(items) {
   const table = document.querySelector('#tableAllItems tbody');
-  table.innerHTML = '';
   let temp = '';
   let sizeTemp = '';
   items.forEach(item => {
@@ -46,6 +52,6 @@ async function itemsForeach(items) {
             `
     sizeTemp = '';
   });
-  table.innerHTML = temp;
+  table.innerHTML += temp;
 }
 
