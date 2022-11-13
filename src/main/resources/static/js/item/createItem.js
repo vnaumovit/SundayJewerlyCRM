@@ -10,7 +10,7 @@ async function createItem() {
       clearItemFields(addItemForm);
       clearSizes()
       addItemForm.prepend(alertMessage('Товар успешно добавлен!'));
-      await getItems();
+      await getItems(true);
       $('.nav-tabs a[href="#itemTable"]').tab('show');
     }
   });

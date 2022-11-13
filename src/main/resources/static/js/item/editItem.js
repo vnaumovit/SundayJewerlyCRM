@@ -10,7 +10,7 @@ async function editItem(modal, id) {
     const itemResponse = await itemFetch.updateItem(data);
     if (itemResponse.ok) {
       clearSizes();
-      await getItems();
+      await getItems(true);
       modal.modal('hide');
     }
   })

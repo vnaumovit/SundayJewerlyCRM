@@ -1,17 +1,4 @@
 
-body {
-    /*background: url("../images/back2.jpg");*/
-}
-
-.bg-fon {
-    /*background-color:rgba(0,0,0,.3);*/
-    /*height:100%;*/
-    /*position:fixed;*/
-    /*width:100%;*/
-    /*top:0;*/
-    /*left:0;*/
-}
-
 .row {
     position: absolute;
     width: 100%;
@@ -51,14 +38,6 @@ body {
 
 .select {
     max-height: 100px;
-}
-
-.btn-left {
-
-}
-
-.btn-right {
-
 }
 
 .modal {
@@ -120,12 +99,12 @@ body {
     margin-left: 30px;
 }
 
-.modal-content {
-    /*max-height: 500px;*/
-}
-
 .modal-body-optional {
     min-height: 150px;
-    max-height:500px;
+    max-height: 500px;
     overflow-y: auto;
+}
+
+#searchItems {
+    max-width: 710px;
 }

@@ -10,7 +10,7 @@ async function deleteItem(modal, id) {
     $("#deleteButton").on('click', async () => {
         const response = await itemFetch.deleteItem(id);
         if (response.ok) {
-            getItems();
+            await getItems(true);
             modal.modal('hide');
         }
     })

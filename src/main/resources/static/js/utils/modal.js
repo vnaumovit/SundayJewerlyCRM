@@ -45,6 +45,12 @@ async function getOptionalModal() {
       case 'editSize':
         editSize(thisModal, id);
         break;
+      case 'addSale':
+        addSale(thisModal);
+        break
+      case 'editSale':
+        editSale(thisModal, id);
+        break
     }
   }).on('hidden.bs.modal', (e) => {
     let thisModal = $(e.target);
@@ -61,10 +67,10 @@ function shopOptionalModal(event) {
   let modalOptional = $('#modalOptional');
   let targetButton = $(event);
   console.log(targetButton)
-  let buttonItemId = targetButton.attr('data-id');
-  let buttonAction = targetButton.attr('data-action');
-  modalOptional.attr('data-id', buttonItemId);
-  let attr = modalOptional.attr('data-action', buttonAction);
+  let id = targetButton.attr('data-id');
+  let action = targetButton.attr('data-action');
+  modalOptional.attr('data-id', id);
+  let attr = modalOptional.attr('data-action', action);
   modalOptional.modal('show');
 
   if (attr === 'addSize') {
@@ -84,13 +90,14 @@ function showMainModal(event) {
 
 function fillSizeModal(modal, text) {
   modal.find('.modal-title-optional').html(text);
-  let addButton = `<button class="btn btn-success" type="submit" id="sizeSubmit">Подтвердить</button>`;
-  let addElseSize = `<button class="btn btn-info ml-3" type="button" id="addElseSize">Добавить еще размер</button>`;
-  let deleteSizeButton = `<button class="btn btn-info ml-3" type="button" id="deleteSizeButton">Удалить размер</button>`;
-  let closeButton = `<button type="button" id="closeSize" class="btn btn-secondary bl-5" data-dismiss="modal">Закрыть</button>`;
+  let addButton = `<button class="btn btn-success ml-3" type="submit" id="sizeSubmit">Подтвердить</button>`;
+  let groupButtons =  `<div class="btn-group ml-3" role="group">
+    <button class="btn btn-secondary" type="button" id="addElseSize">Добавить еще размер</button>
+    <button class="btn btn-secondary" type="button" id="deleteSizeButton">Удалить размер</button>
+  </div>`
+  let closeButton = `<button type="button" id="closeSize" class="btn btn-danger ml-3" data-dismiss="modal">Закрыть</button>`;
   modal.find('.modal-footer-optional').append(addButton);
-  modal.find('.modal-footer-optional').append(addElseSize);
-  modal.find('.modal-footer-optional').append(deleteSizeButton);
+  modal.find('.modal-footer-optional').append(groupButtons);
   modal.find('.modal-footer-optional').append(closeButton);
 }
 

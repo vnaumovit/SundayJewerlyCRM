@@ -10,12 +10,14 @@ function debounce(callee, timeoutMs) {
 }
 
 async function handleSearchItems(e) {
+  $('#showElse').prop('hidden', false)
   const { value } = e.target
-  let page = { pageNumber: pagingNumber, pageSize: 15 };
+  let pageNumber = $('showElse').val();
+  let page = { pageNumber: pageNumber, pageSize: 15 };
   let items = await itemFetch.getItemsLikeName(value, page)
     .then(res => res.json())
     .then(items => items);
-  await itemsForeach(items);
+  await itemsForeach(items, true);
 }
 
 async function callSearch() {
