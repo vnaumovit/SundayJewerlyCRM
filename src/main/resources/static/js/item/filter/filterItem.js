@@ -33,7 +33,6 @@ async function resetFilter() {
     $('body input:checkbox:checked').each(function () {
       $(this).prop('checked', false)
     });
-    $('body input:radio:checked').prop('checked', false);
     $('#itemTypeFilter').val('Все')
     await getItems();
   })

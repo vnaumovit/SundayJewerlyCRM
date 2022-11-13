@@ -5,7 +5,7 @@ async function getItems() {
     .then(items => items);
   await itemsForeach(items);
   $('#tableAllItems').find('button').on('click', (event) => {
-    showItemModal(event);
+    showMainModal(event);
   })
 }
 
@@ -36,7 +36,7 @@ async function itemsForeach(items) {
                     <td style="width: 150px">${sizeTemp}</td>
                     <td class="editBtn ">
                         <button type="button" data-id="${item.id}" data-action="editItem" class="btn btn-info"
-                            className data-toggle="modal" data-target="#editItemModal">Изменить</button>
+                            className data-toggle="modal">Изменить</button>
                     </td>
                     <td class="deleteBtn">
                         <button type="button" data-id="${item.id}" data-action="deleteItem" class="btn btn-danger"

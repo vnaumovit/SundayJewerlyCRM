@@ -61,17 +61,16 @@ body {
 
 }
 
-.modal-footer-item {
+.modal {
+    position: absolute;
+}
+
+.modal-footer-main {
     display: flex;
     justify-content: space-around;
 }
 
-.modal-footer-size {
-    display: flex;
-    justify-content: space-around;
-}
-
-.modal-footer-user {
+.modal-footer-optional {
     display: flex;
     justify-content: space-around;
 }
@@ -119,4 +118,14 @@ body {
     height: 20px;
     width: 70px;
     margin-left: 30px;
+}
+
+.modal-content {
+    /*max-height: 500px;*/
+}
+
+.modal-body-optional {
+    min-height: 150px;
+    max-height:500px;
+    overflow-y: auto;
 }

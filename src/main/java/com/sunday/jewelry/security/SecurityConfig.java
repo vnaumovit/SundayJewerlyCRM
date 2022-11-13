@@ -59,8 +59,7 @@ public class SecurityConfig {
             .antMatchers("/favicon.ico").permitAll()
             .antMatchers("/login", "/registration", "/js/user/registration.js", "/css/registration.css").anonymous()
             //                 защищенные URL
-            .antMatchers("/user/**").access("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
-            .antMatchers("/**").access("hasRole('ROLE_ADMIN')").anyRequest().authenticated()
+            .antMatchers("/**").access("hasAnyRole('ROLE_ADMIN', 'ROLE_SUPER_ADMIN')").anyRequest().authenticated()
             .and()
             .logout()
             // разрешаем делать логаут всем

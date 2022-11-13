@@ -3,8 +3,8 @@ async function editSize(modal, itemId) {
   let editSizes = await request.json().then(sizes => sizes);
   fillSizeModal(modal, 'Изменение размеров');
   addSizeBaseForm(modal)
-  let checkSizes = $('#sizeCount').val() === '' && editSizes.length !== 0;
-  console.log($('#sizeCount').val())
+  let count = $('#sizeCount').val();
+  let checkSizes = ((count === '' || count === '0') && editSizes.length !== 0)
   if (checkSizes) {
     await editSizeForm(editSizes, modal);
   } else {
