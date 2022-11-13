@@ -11,12 +11,7 @@ function debounce(callee, timeoutMs) {
 
 async function handleSearchItems(e) {
   const { value } = e.target
-  // Получаем значение в поле,
-  // на котором сработало событие:
-
   let page = { pageNumber: pagingNumber, pageSize: 15 };
-  // Получаем список названий пицц от сервера:
-  console.log('Запрос ***')
   let items = await itemFetch.getItemsLikeName(value, page)
     .then(res => res.json())
     .then(items => items);

@@ -18,15 +18,17 @@ async function createItem() {
 
 function clearItemFields(addItemForm) {
   addItemForm.find('#name').val('');
-  addItemForm.find('#itemType').val('');
   addItemForm.find('#number').val('');
   addItemForm.find('#number').val('');
   addItemForm.find('#addSize').val('');
   addItemForm.find('#image').val('');
 }
 
-function clearSizes() {
-  $('#sizeCount').val('');
-  sizes = []
+async function getNewItemForm() {
+  let button = $(`#addItem`);
+  let form = $(`#addItemForm`)
+  button.click(() => {
+    form.show()
+  })
 }
 

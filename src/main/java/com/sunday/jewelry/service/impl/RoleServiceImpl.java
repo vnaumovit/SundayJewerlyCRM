@@ -31,6 +31,7 @@ public class RoleServiceImpl implements RoleService {
     public void addDefaultRole() {
         roleRepository.save(new Role(1L,"ROLE_USER"));
         roleRepository.save(new Role(2L,"ROLE_ADMIN"));
+        roleRepository.save(new Role(3L,"ROLE_SUPER_ADMIN"));
     }
 
     @Override
